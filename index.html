@@ -17,7 +17,9 @@
 			$(document).on('click', '#submit', function() {
 				let validation = validate({
 					input: '.vali',
-					border_class: 'red-border'
+					border_class: 'red-border',
+					timeout: '3000',
+					custom_error_alert: 'console.log("ola")'
 				})
 				if(!validation){
 					console.log('done')

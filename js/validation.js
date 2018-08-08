@@ -13,7 +13,8 @@ function validate(config){
 			if($(self[i]).val().trim() == ""){
 				$(self[i]).addClass(config.border_class);
 				validation = true;
-				callTimeout(self);
+				callTimeout(config);
+				eval(config.custom_error_alert)
 				break;
 			}
 		}
@@ -21,9 +22,9 @@ function validate(config){
 	}
 }
 
-function callTimeout(inp) {
-	let self = inp;
+function callTimeout(config) {
+	let self = $(config.input);
 	setTimeout(function() {
 		$(self).removeClass('red-border');
-	}, 3000)
+	}, config.timeout)
 }
